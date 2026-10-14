@@ -1,5 +1,12 @@
-NELSON KAI YIP — SELF-INTRODUCTION E-PORTFOLIO
+NELSON CHAN — SELF-INTRODUCTION E-PORTFOLIO
 CIS222 Web Design and Development | Individual Assignment (30%)
+
+NAME AND DESIGN
+Preferred name / brand: Nelson Chan. Logo initials: NC.
+Full name: Chan Kai Yip Nelson (shown on Personal Information).
+All seven pages share one polished visual system: bold typography, spacious
+layouts, subtle gradients, a glass sticky navbar, refined hover feedback,
+and scroll reveals that respect reduced-motion preferences.
 
 QUICK START
 1. Extract the whole ZIP. Keep the nelson-portfolio folder intact.

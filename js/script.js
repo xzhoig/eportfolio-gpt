@@ -61,6 +61,7 @@
 
   // Mobile menu: Escape, outside click, focus loop and breakpoint reset.
   const menuButton = $("[data-menu-toggle]");
+  const menuIcon = $("svg path", menuButton || document);
   const nav = $("#site-nav");
   const mobileWidth = window.matchMedia("(max-width: 900px)");
   function closeMenu(returnFocus = false) {
@@ -68,6 +69,7 @@
     document.body.classList.remove("menu-open");
     menuButton?.setAttribute("aria-expanded", "false");
     menuButton?.setAttribute("aria-label", "Open navigation menu");
+    menuIcon?.setAttribute("d", "M4 7h16M4 12h16M4 17h16");
     if (returnFocus) menuButton?.focus();
   }
   menuButton?.addEventListener("click", () => {
@@ -78,6 +80,10 @@
       isOpen ? "Close navigation menu" : "Open navigation menu",
     );
     document.body.classList.toggle("menu-open", isOpen);
+    menuIcon?.setAttribute(
+      "d",
+      isOpen ? "M6 6l12 12M6 18L18 6" : "M4 7h16M4 12h16M4 17h16",
+    );
     if (isOpen) $("a", nav)?.focus();
   });
   nav?.addEventListener("click", (event) => {
@@ -246,9 +252,11 @@
 
   // Scroll progress and a compact back-to-top control, throttled via animation frame.
   const progress = $(".reading-progress");
+  const siteHeader = $(".site-header");
   const backToTop = $("[data-back-to-top]");
   let ticking = false;
   function updateScroll() {
+    siteHeader?.classList.toggle("is-scrolled", window.scrollY > 12);
     const distance = root.scrollHeight - window.innerHeight;
     if (progress)
       progress.style.width = `${distance > 0 ? Math.min(100, Math.max(0, (window.scrollY / distance) * 100)) : 0}%`;
