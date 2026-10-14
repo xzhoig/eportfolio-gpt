@@ -141,7 +141,7 @@
     });
   }
 
-  // Missing user photo intentionally falls back to a designed initials portrait.
+  // Show the supplied photo when loaded; hide a broken image without changing its frame.
   $$(".portrait-photo").forEach((photo) => {
     const revealPhoto = () => {
       if (photo.naturalWidth > 0) photo.classList.add("is-loaded");
